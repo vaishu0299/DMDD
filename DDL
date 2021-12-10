@@ -1,0 +1,533 @@
+--------------------------------------------------------
+--  File created - Friday-December-10-2021   
+--------------------------------------------------------
+DROP TABLE "ADMIN"."BBANK_MANAGEMENT_EMPLOYEE" cascade constraints;
+DROP TABLE "ADMIN"."BLOODBANK" cascade constraints;
+DROP TABLE "ADMIN"."BLOODREQUEST" cascade constraints;
+DROP TABLE "ADMIN"."BLOOD_MANAGEMENT_SYSINVENTORY" cascade constraints;
+DROP TABLE "ADMIN"."BMS_DOCTORS" cascade constraints;
+DROP TABLE "ADMIN"."DONORDETAILS" cascade constraints;
+DROP TABLE "ADMIN"."HOSPITAL" cascade constraints;
+DROP TABLE "ADMIN"."LOCATION" cascade constraints;
+DROP TABLE "ADMIN"."PATIENT" cascade constraints;
+DROP TABLE "ADMIN"."REQSTATUSTYPE" cascade constraints;
+DROP TABLE "ADMIN"."SAMPLECHECKDETAILS" cascade constraints;
+DROP TABLE "ADMIN"."SAMPLEDETAILS" cascade constraints;
+DROP TABLE "ADMIN"."BBANK_MANAGEMENT_EMPLOYEE" cascade constraints;
+DROP TABLE "ADMIN"."BLOODBANK" cascade constraints;
+DROP TABLE "ADMIN"."BLOODREQUEST" cascade constraints;
+DROP TABLE "ADMIN"."BLOOD_MANAGEMENT_SYSINVENTORY" cascade constraints;
+DROP TABLE "ADMIN"."BMS_DOCTORS" cascade constraints;
+DROP TABLE "ADMIN"."DONORDETAILS" cascade constraints;
+DROP TABLE "ADMIN"."HOSPITAL" cascade constraints;
+DROP TABLE "ADMIN"."LOCATION" cascade constraints;
+DROP TABLE "ADMIN"."PATIENT" cascade constraints;
+DROP TABLE "ADMIN"."REQSTATUSTYPE" cascade constraints;
+DROP TABLE "ADMIN"."SAMPLECHECKDETAILS" cascade constraints;
+DROP TABLE "ADMIN"."SAMPLEDETAILS" cascade constraints;
+--------------------------------------------------------
+--  DDL for Table BBANK_MANAGEMENT_EMPLOYEE
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BBANK_MANAGEMENT_EMPLOYEE" 
+   (	"BMSEMPLOYEE_ID" NUMBER(10,0), 
+	"EMP_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"EMP_PHONENO" NUMBER(10,0), 
+	"BLOODBANK_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BLOODBANK
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BLOODBANK" 
+   (	"BLOODBANK_ID" NUMBER(10,0), 
+	"BLOODBANK_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"LOCATION_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BLOODREQUEST
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BLOODREQUEST" 
+   (	"BLOODREQ_ID" NUMBER(10,0), 
+	"HOSPITAL_ID" NUMBER(10,0), 
+	"PATIENT_ID" NUMBER(10,0), 
+	"REQSTATUSNO" NUMBER(10,0), 
+	"BLOODGROUP_ID" NUMBER(10,0), 
+	"QTYREQ" NUMBER(10,0), 
+	"REQUESTDATE" DATE, 
+	"REQPRIORITY" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"BMSEMPLOYEE_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BLOOD_MANAGEMENT_SYSINVENTORY
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BLOOD_MANAGEMENT_SYSINVENTORY" 
+   (	"BLOODINVENTORY_ID" NUMBER(10,0), 
+	"BLOODTYPE" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"QTY" NUMBER(10,0), 
+	"SAMPLINGDATE" DATE, 
+	"SAMPLE_ID" NUMBER(10,0), 
+	"DONOR_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BMS_DOCTORS
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BMS_DOCTORS" 
+   (	"DOCTOR_ID" NUMBER(10,0), 
+	"DOCTOR_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table DONORDETAILS
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."DONORDETAILS" 
+   (	"DONOR_ID" NUMBER(10,0), 
+	"DONOR_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"DONOR_AGE" NUMBER(10,0), 
+	"DONOR_PHONENO" LONG COLLATE "USING_NLS_COMP", 
+	"LASTDONATIONDATE" DATE
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table HOSPITAL
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."HOSPITAL" 
+   (	"HOSPITAL_ID" NUMBER(10,0), 
+	"HOSPITAL_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"LOCATION_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table LOCATION
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."LOCATION" 
+   (	"LOCATION_ID" NUMBER(10,0), 
+	"LOCATION_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"LOC_PINCODE" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table PATIENT
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."PATIENT" 
+   (	"PATIENT_ID" NUMBER(10,0), 
+	"PATIENT_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"MEDICAL_HISTORY" VARCHAR2(4000 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table REQSTATUSTYPE
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."REQSTATUSTYPE" 
+   (	"REQSTATUSNO" NUMBER(10,0), 
+	"STATUSTYPE" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table SAMPLECHECKDETAILS
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."SAMPLECHECKDETAILS" 
+   (	"SCD_ID" NUMBER(10,0), 
+	"SAMPLE_ID" NUMBER(10,0), 
+	"DOCTOR_ID" NUMBER(10,0), 
+	"RESULT" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table SAMPLEDETAILS
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."SAMPLEDETAILS" 
+   (	"SAMPLE_ID" NUMBER(10,0), 
+	"DONOR_ID" NUMBER(10,0), 
+	"SAMPLINGDATE" DATE, 
+	"BLOODTYPE" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"QTY" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BBANK_MANAGEMENT_EMPLOYEE
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BBANK_MANAGEMENT_EMPLOYEE" 
+   (	"BMSEMPLOYEE_ID" NUMBER(10,0), 
+	"EMP_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"EMP_PHONENO" NUMBER(10,0), 
+	"BLOODBANK_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BLOODBANK
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BLOODBANK" 
+   (	"BLOODBANK_ID" NUMBER(10,0), 
+	"BLOODBANK_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"LOCATION_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BLOODREQUEST
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BLOODREQUEST" 
+   (	"BLOODREQ_ID" NUMBER(10,0), 
+	"HOSPITAL_ID" NUMBER(10,0), 
+	"PATIENT_ID" NUMBER(10,0), 
+	"REQSTATUSNO" NUMBER(10,0), 
+	"BLOODGROUP_ID" NUMBER(10,0), 
+	"QTYREQ" NUMBER(10,0), 
+	"REQUESTDATE" DATE, 
+	"REQPRIORITY" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"BMSEMPLOYEE_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BLOOD_MANAGEMENT_SYSINVENTORY
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BLOOD_MANAGEMENT_SYSINVENTORY" 
+   (	"BLOODINVENTORY_ID" NUMBER(10,0), 
+	"BLOODTYPE" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"QTY" NUMBER(10,0), 
+	"SAMPLINGDATE" DATE, 
+	"SAMPLE_ID" NUMBER(10,0), 
+	"DONOR_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table BMS_DOCTORS
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."BMS_DOCTORS" 
+   (	"DOCTOR_ID" NUMBER(10,0), 
+	"DOCTOR_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table DONORDETAILS
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."DONORDETAILS" 
+   (	"DONOR_ID" NUMBER(10,0), 
+	"DONOR_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"DONOR_AGE" NUMBER(10,0), 
+	"DONOR_PHONENO" LONG COLLATE "USING_NLS_COMP", 
+	"LASTDONATIONDATE" DATE
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table HOSPITAL
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."HOSPITAL" 
+   (	"HOSPITAL_ID" NUMBER(10,0), 
+	"HOSPITAL_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"LOCATION_ID" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table LOCATION
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."LOCATION" 
+   (	"LOCATION_ID" NUMBER(10,0), 
+	"LOCATION_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"LOC_PINCODE" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table PATIENT
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."PATIENT" 
+   (	"PATIENT_ID" NUMBER(10,0), 
+	"PATIENT_NAME" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"MEDICAL_HISTORY" VARCHAR2(4000 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table REQSTATUSTYPE
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."REQSTATUSTYPE" 
+   (	"REQSTATUSNO" NUMBER(10,0), 
+	"STATUSTYPE" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table SAMPLECHECKDETAILS
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."SAMPLECHECKDETAILS" 
+   (	"SCD_ID" NUMBER(10,0), 
+	"SAMPLE_ID" NUMBER(10,0), 
+	"DOCTOR_ID" NUMBER(10,0), 
+	"RESULT" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Table SAMPLEDETAILS
+--------------------------------------------------------
+
+  CREATE TABLE "ADMIN"."SAMPLEDETAILS" 
+   (	"SAMPLE_ID" NUMBER(10,0), 
+	"DONOR_ID" NUMBER(10,0), 
+	"SAMPLINGDATE" DATE, 
+	"BLOODTYPE" VARCHAR2(40 BYTE) COLLATE "USING_NLS_COMP", 
+	"QTY" NUMBER(10,0)
+   )  DEFAULT COLLATION "USING_NLS_COMP" SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 10 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "DATA" ;
+REM INSERTING into ADMIN.BBANK_MANAGEMENT_EMPLOYEE
+SET DEFINE OFF;
+REM INSERTING into ADMIN.BLOODBANK
+SET DEFINE OFF;
+REM INSERTING into ADMIN.BLOODREQUEST
+SET DEFINE OFF;
+REM INSERTING into ADMIN.BLOOD_MANAGEMENT_SYSINVENTORY
+SET DEFINE OFF;
+REM INSERTING into ADMIN.BMS_DOCTORS
+SET DEFINE OFF;
+REM INSERTING into ADMIN.DONORDETAILS
+SET DEFINE OFF;
+REM INSERTING into ADMIN.HOSPITAL
+SET DEFINE OFF;
+REM INSERTING into ADMIN.LOCATION
+SET DEFINE OFF;
+REM INSERTING into ADMIN.PATIENT
+SET DEFINE OFF;
+REM INSERTING into ADMIN.REQSTATUSTYPE
+SET DEFINE OFF;
+REM INSERTING into ADMIN.SAMPLECHECKDETAILS
+SET DEFINE OFF;
+REM INSERTING into ADMIN.SAMPLEDETAILS
+SET DEFINE OFF;
+--------------------------------------------------------
+--  DDL for Index BBANK_MANAGEMENT_EMPLOYEE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BBANK_MANAGEMENT_EMPLOYEE_PK" ON "ADMIN"."BBANK_MANAGEMENT_EMPLOYEE" ("BMSEMPLOYEE_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BLOODBANK_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BLOODBANK_PK" ON "ADMIN"."BLOODBANK" ("BLOODBANK_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BLOODREQUEST_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BLOODREQUEST_PK" ON "ADMIN"."BLOODREQUEST" ("BLOODREQ_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BLOOD_MANAGEMENT_SYSINVENTORY_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BLOOD_MANAGEMENT_SYSINVENTORY_PK" ON "ADMIN"."BLOOD_MANAGEMENT_SYSINVENTORY" ("BLOODINVENTORY_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BMS_DOCTORS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BMS_DOCTORS_PK" ON "ADMIN"."BMS_DOCTORS" ("DOCTOR_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index DONORDETAILS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."DONORDETAILS_PK" ON "ADMIN"."DONORDETAILS" ("DONOR_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index HOSPITAL_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."HOSPITAL_PK" ON "ADMIN"."HOSPITAL" ("HOSPITAL_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index LOCATION_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."LOCATION_PK" ON "ADMIN"."LOCATION" ("LOCATION_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index PATIENT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."PATIENT_PK" ON "ADMIN"."PATIENT" ("PATIENT_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index REQSTATUSTYPE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."REQSTATUSTYPE_PK" ON "ADMIN"."REQSTATUSTYPE" ("REQSTATUSNO") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index SAMPLECHECKDETAILS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."SAMPLECHECKDETAILS_PK" ON "ADMIN"."SAMPLECHECKDETAILS" ("SCD_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index SAMPLEDETAILS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."SAMPLEDETAILS_PK" ON "ADMIN"."SAMPLEDETAILS" ("SAMPLE_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BBANK_MANAGEMENT_EMPLOYEE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BBANK_MANAGEMENT_EMPLOYEE_PK" ON "ADMIN"."BBANK_MANAGEMENT_EMPLOYEE" ("BMSEMPLOYEE_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BLOODBANK_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BLOODBANK_PK" ON "ADMIN"."BLOODBANK" ("BLOODBANK_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BLOODREQUEST_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BLOODREQUEST_PK" ON "ADMIN"."BLOODREQUEST" ("BLOODREQ_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BLOOD_MANAGEMENT_SYSINVENTORY_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BLOOD_MANAGEMENT_SYSINVENTORY_PK" ON "ADMIN"."BLOOD_MANAGEMENT_SYSINVENTORY" ("BLOODINVENTORY_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index BMS_DOCTORS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."BMS_DOCTORS_PK" ON "ADMIN"."BMS_DOCTORS" ("DOCTOR_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index DONORDETAILS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."DONORDETAILS_PK" ON "ADMIN"."DONORDETAILS" ("DONOR_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index HOSPITAL_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."HOSPITAL_PK" ON "ADMIN"."HOSPITAL" ("HOSPITAL_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index LOCATION_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."LOCATION_PK" ON "ADMIN"."LOCATION" ("LOCATION_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index PATIENT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."PATIENT_PK" ON "ADMIN"."PATIENT" ("PATIENT_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index REQSTATUSTYPE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."REQSTATUSTYPE_PK" ON "ADMIN"."REQSTATUSTYPE" ("REQSTATUSNO") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index SAMPLECHECKDETAILS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."SAMPLECHECKDETAILS_PK" ON "ADMIN"."SAMPLECHECKDETAILS" ("SCD_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
+--------------------------------------------------------
+--  DDL for Index SAMPLEDETAILS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ADMIN"."SAMPLEDETAILS_PK" ON "ADMIN"."SAMPLEDETAILS" ("SAMPLE_ID") 
+  PCTFREE 10 INITRANS 20 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "DATA" ;
