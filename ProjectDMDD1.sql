@@ -63,10 +63,10 @@ END;
 
 SET SERVEROUTPUT ON;
 
-CREATE OR REPLACE PROCEDURE p_bbank_management_sysinventory is table_name varchar2(4000);
+CREATE OR REPLACE PROCEDURE p_blood_management_sysinventory is table_name varchar2(4000);
 BEGIN
 ---CREATING TABLE QUERY
-    table_name := 'CREATE TABLE BBANK_MANAGEMENT_SYSINVENTORY
+    table_name := 'CREATE TABLE BLOOD_MANAGEMENT_SYSINVENTORY
                     {
                         BLOODINVENTORY_ID NUMBER(10) NOT NULL, 
                         BLOODTYPE VARCHAR2(100) NOT NULL,  
@@ -76,7 +76,7 @@ BEGIN
                         SAMPLE_ID NUMBER(10) NOT NULL,
                         DONOR_ID NUMBER(10) NOT NULL,
                         
-                        CONSTRAINT BBANK_MANAGEMENT_SYSINVENTORY_PK PRIMARY KEY
+                        CONSTRAINT BLOOD_MANAGEMENT_SYSINVENTORY_PK PRIMARY KEY
                         {
                             BLOODINVENTORY_ID
                         }
@@ -91,7 +91,7 @@ BEGIN
                         ENABLE
                     }';
     EXCECUTE IMMEDIATE table_name;
-END p_bbank_management_sysinventory;
+END p_blood_management_sysinventory;
 /
 
 
@@ -99,24 +99,24 @@ DECLARE
     t_name varchar(50);
     cnt NUMBER;
 BEGIN
-    t_name := 'BBANK_MANAGEMENT_SYSINVENTORY';
+    t_name := 'BLOOD_MANAGEMENT_SYSINVENTORY';
     SELECT COUNT(*) INTO cnt FROM user_tables where table_name = t_name;
     IF(cnt>0) THEN
-        DBMS_OUTPUT.PUT_LINE('TABLE BBANK_MANAGEMENT_SYSINVENTORY ALREADY EXISTS!');
+        DBMS_OUTPUT.PUT_LINE('TABLE BLOOD_MANAGEMENT_SYSINVENTORY ALREADY EXISTS!');
         DBMS_OUTPUT.PUT_LINE('-------------------------------------------------------');
     ELSE
         BEGIN
-            p_bbank_management_sysinventory;
+            p_blood_management_sysinventory;
         END;
-        DBMS_OUTPUT.PUT_LINE('TABLE BBANK_MANAGEMENT_SYSINVENTORY CREATED SUCCESSFULLY!');
+        DBMS_OUTPUT.PUT_LINE('TABLE BLOOD_MANAGEMENT_SYSINVENTORY CREATED SUCCESSFULLY!');
         DBMS_OUTPUT.PUT_LINE('-------------------------------------------------------');
     END IF;
 EXCEPTION
     WHEN no_data_found THEN
-    DBMS_OUTPUT.PUT_LINE('TABLE BBANK_MANAGEMENT_SYSINVENTORY CREATED SUCCESSFULLY!');
+    DBMS_OUTPUT.PUT_LINE('TABLE BLOOD_MANAGEMENT_SYSINVENTORY CREATED SUCCESSFULLY!');
     DBMS_OUTPUT.PUT_LINE('-------------------------------------------------------');
     BEGIN
-        p_bbank_management_sysinventory;
+        p_blood_management_sysinventory;
     END;
     WHEN others THEN
     DBMS_OUTPUT.PUT_LINE('SOMETHING WENT WRONG!');
